@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'com.heqing.activemq'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    // spring 框架版本
+    spring_version = '5.2.6.RELEASE'
+
+    // 日志版本
+    log4j_version = '1.7.30'
+    // 单元测试包版本
+    junit_version = '4.12'
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-context', version: spring_version
+    compile group: 'org.springframework', name: 'spring-aspects', version: spring_version
+    compile group: 'org.springframework', name: 'spring-jms', version: spring_version
+
+    compile group: 'org.apache.activemq', name: 'activemq-all', version: '5.11.3'
+    compile group: 'org.apache.xbean', name: 'xbean-spring', version: '4.17'
+    compile group: 'javax.jms', name: 'javax.jms-api', version: '2.0.1'
+
+    testCompile group: 'org.springframework', name: 'spring-test', version: spring_version
+    testCompile group: 'junit', name: 'junit', version: junit_version
+}
